@@ -1,0 +1,16 @@
+config/.env
+*.tmp
+*.exe
+/.idea/*
+*.DS_Store
+node_modules
+/temp/*
+/vendor/*
+/tmp
+*.idea
+.env*
+.vscode/*
+cmd/api/__debug_bin
+__debug_bin
+designer-for-golang
+
