@@ -1,6 +1,6 @@
 # Anomaly Detection - Golang 
 
-This project is an example of anomaly detection.
+This project is an example of an anomaly detection system based on data collected in CSV.
 
 ### Instalation and Testing
 
