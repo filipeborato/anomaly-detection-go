@@ -15,7 +15,6 @@ func CheckErr(err error) {
 		log.Panic("ERROR: " + err.Error())
 	}
 }
-
 func CsvReader(filePath string, comma rune) *csv.Reader {
 	csvFile, err := os.Open(filePath)
 	CheckErr(err)
@@ -25,7 +24,6 @@ func CsvReader(filePath string, comma rune) *csv.Reader {
 
 	return reader
 }
-
 func RootDir() string {
 	_, b, _, _ := runtime.Caller(0)
 	d := path.Join(path.Dir(b))
