@@ -16,5 +16,6 @@ func AnomalyDetection() {
 		value, _ := strconv.ParseFloat(line.Value, 64)
 		values = append(values, value)
 	}
-	fmt.Println(values)
+	standardDeveiation := utils.StandardDeviation(values)
+	fmt.Println(standardDeveiation)
 }
