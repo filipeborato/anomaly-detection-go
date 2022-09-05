@@ -1,41 +1,22 @@
 package repository
 
 import (
-	"bufio"
-	"encoding/csv"
+	"anomaly-detection-go/entity"
+	"anomaly-detection-go/utils"
 	"io"
-	"log"
-	"os"
 )
 
-type CSV struct {
-	Timestamp string `json:"timestamp"`
-	Value     string `json:"value"`
-}
-
-func checkErr(err error) {
-	if err != nil {
-		log.Panic("ERROR: " + err.Error())
-	}
-}
-
-func ReadCsv(filePath string) []CSV {
-	csvFile, err := os.Open(filePath)
-	checkErr(err)
-
-	reader := csv.NewReader(bufio.NewReader(csvFile))
-	reader.Comma = ','
-
-	var data []CSV
-
+func ExtractCsv(filePath string, comma rune) []entity.CSV {
+	reader := utils.CsvReader(filePath, comma)
+	var data []entity.CSV
 	for {
 		line, err := reader.Read()
 		if err == io.EOF {
 			break
 		} else if err != nil {
-			checkErr(err)
+			utils.CheckErr(err)
 		}
-		data = append(data, CSV{
+		data = append(data, entity.CSV{
 			Timestamp: line[0],
 			Value:     line[1],
 		})
