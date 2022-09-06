@@ -28,3 +28,12 @@ func Variance(values []float64) float64 {
 	}
 	return variance
 }
+
+func Deviation(values []float64) []float64 {
+	var deviation []float64
+	mean := Mean(values)
+	for _, value := range values {
+		deviation = append(deviation, math.Abs(value-mean))
+	}
+	return deviation
+}
