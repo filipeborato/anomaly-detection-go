@@ -4,6 +4,7 @@ import (
 	"anomaly-detection-go/model"
 	"anomaly-detection-go/repository"
 	"anomaly-detection-go/utils"
+	"fmt"
 	"strconv"
 )
 
@@ -16,5 +17,6 @@ func AnomalyDetection() {
 		value, _ := strconv.ParseFloat(line.Value, 64)
 		values = append(values, value)
 	}
-	model.AnomalyDetection(values)
+	anomalyDetection := model.AnomalyDetection(values, data)
+	fmt.Println(anomalyDetection)
 }
