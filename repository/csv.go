@@ -21,6 +21,7 @@ func ExtractCsv(filePath string, comma rune) []entity.CSV {
 			Value:     line[1],
 		})
 	}
+	// remotion headerCsv
 	data = append(data[:0], data[1:]...)
 	return data
 }
