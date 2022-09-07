@@ -34,7 +34,5 @@ func AnomalyDetection() {
 		} else {
 			fmt.Println("Info")
 		}
-
 	}
-
 }
