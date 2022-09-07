@@ -21,5 +21,6 @@ func ExtractCsv(filePath string, comma rune) []entity.CSV {
 			Value:     line[1],
 		})
 	}
+	data = append(data[:0], data[1:]...)
 	return data
 }
