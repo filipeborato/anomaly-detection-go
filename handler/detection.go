@@ -3,7 +3,7 @@ package handler
 import (
 	"anomaly-detection-go/repository"
 	"anomaly-detection-go/utils"
-	"fmt"
+	"log"
 	"strconv"
 )
 
@@ -22,17 +22,17 @@ func AnomalyDetection() {
 
 	for _, deviation := range deviations {
 		if deviation/mean > 0.50 {
-			fmt.Println(mean)
-			fmt.Println(deviation)
-			fmt.Println(deviation / mean)
-			fmt.Println("Alert")
+			log.Println(mean)
+			log.Println(deviation)
+			log.Println(deviation / mean)
+			log.Println("Alert")
 		} else if standardDeveiation < deviation {
-			fmt.Println(mean)
-			fmt.Println(deviation)
-			fmt.Println(standardDeveiation)
-			fmt.Println("Warn")
+			log.Println(mean)
+			log.Println(deviation)
+			log.Println(standardDeveiation)
+			log.Println("Warn")
 		} else {
-			fmt.Println("Info")
+			log.Println("Info")
 		}
 	}
 }
