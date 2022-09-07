@@ -1,7 +1,6 @@
 package test
 
 import (
-	"anomaly-detection-go/handler"
 	"anomaly-detection-go/repository"
 	"anomaly-detection-go/utils"
 	"math/rand"
@@ -49,6 +48,7 @@ func TestDeviation(t *testing.T) {
 	values := testGenerateValues()
 	utils.Deviation(values)
 }
-func TestAnomalyDetection(t *testing.T) {
-	handler.AnomalyDetection()
-}
+
+// func TestAnomalyDetection(t *testing.T) {
+// 	handler.AnomalyDetection()
+// }
