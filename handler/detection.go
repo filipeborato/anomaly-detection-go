@@ -1,9 +1,9 @@
-package handler
+package model
 
 import (
+	"anomaly-detection-go/model"
 	"anomaly-detection-go/repository"
 	"anomaly-detection-go/utils"
-	"log"
 	"strconv"
 )
 
@@ -16,23 +16,5 @@ func AnomalyDetection() {
 		value, _ := strconv.ParseFloat(line.Value, 64)
 		values = append(values, value)
 	}
-	mean := utils.Mean(values)
-	deviations := utils.Deviation(values)
-	standardDeveiation := utils.StandardDeviation(values)
-
-	for _, deviation := range deviations {
-		if deviation/mean > 0.50 {
-			log.Println(mean)
-			log.Println(deviation)
-			log.Println(deviation / mean)
-			log.Println("Alert")
-		} else if standardDeveiation < deviation {
-			log.Println(mean)
-			log.Println(deviation)
-			log.Println(standardDeveiation)
-			log.Println("Warn")
-		} else {
-			log.Println("Info")
-		}
-	}
+	model.AnomalyDetection(values)
 }
