@@ -1,16 +1,22 @@
 package test
 
 import (
+	"anomaly-detection-go/entity"
+	"anomaly-detection-go/model"
 	"anomaly-detection-go/repository"
 	"anomaly-detection-go/utils"
 	"math/rand"
 	"testing"
 )
 
-func TestCsvRead(t *testing.T) {
+func testCsv() []entity.CSV {
 	rootDir := utils.RootDir()
 	filePath := rootDir + "/data/machine_temperature_system_failure.csv"
-	repository.ExtractCsv(filePath, ',')
+	data := repository.ExtractCsv(filePath, ',')
+	return data
+}
+func TestCsvRead(t *testing.T) {
+	testCsv()
 }
 func TestRootDir(t *testing.T) {
 	utils.RootDir()
@@ -18,11 +24,6 @@ func TestRootDir(t *testing.T) {
 func TestCheckError(t *testing.T) {
 	var err error
 	utils.CheckErr(err)
-}
-func TestReaderCsv(t *testing.T) {
-	rootDir := utils.RootDir()
-	filePath := rootDir + "/data/machine_temperature_system_failure.csv"
-	repository.ExtractCsv(filePath, ',')
 }
 func testGenerateValues() []float64 {
 	values := make([]float64, 60)
@@ -48,7 +49,6 @@ func TestDeviation(t *testing.T) {
 	values := testGenerateValues()
 	utils.Deviation(values)
 }
-
-// func TestAnomalyDetection(t *testing.T) {
-// 	handler.AnomalyDetection()
-// }
+func TestModelAnomalyDetection(t *testing.T) {
+	model.AnomalyDetection(testGenerateValues(), testCsv())
+}

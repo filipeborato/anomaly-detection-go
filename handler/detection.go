@@ -4,11 +4,12 @@ import (
 	"anomaly-detection-go/model"
 	"anomaly-detection-go/repository"
 	"anomaly-detection-go/utils"
-	"fmt"
+	"encoding/json"
+	"net/http"
 	"strconv"
 )
 
-func AnomalyDetection() {
+func AnomalyDetection(w http.ResponseWriter, r *http.Request) {
 	var values []float64
 	rootDir := utils.RootDir()
 	data := repository.ExtractCsv(rootDir+"/data/machine_temperature_system_failure.csv", ',')
@@ -18,5 +19,6 @@ func AnomalyDetection() {
 		values = append(values, value)
 	}
 	anomalyDetection := model.AnomalyDetection(values, data)
-	fmt.Println(anomalyDetection)
+	err := json.NewEncoder(w).Encode(anomalyDetection)
+	utils.CheckErr(err)
 }
