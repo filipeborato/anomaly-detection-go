@@ -23,7 +23,7 @@ http://localhost:8080/
 http://localhost:8080/anomaly-detection
 ```
 
-Example Response Api
+Example One Response Api
 ```
 {
   timestamp: "2014-02-09 10:30:00",
