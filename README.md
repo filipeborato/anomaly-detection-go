@@ -9,6 +9,11 @@ The anomaly detection route returns all values ​​read from the CSV with the 
 
 ### Instalation and Testing
 
+Go Version on the project was made:
+```
+V1.16
+```
+
 Runing project:
 ```
 go mod vendor
