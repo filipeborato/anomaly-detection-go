@@ -9,6 +9,11 @@ The anomaly detection route returns all values ​​read from the CSV with the 
 
 ### Instalation and Testing
 
+Go Version on the project was made:
+```
+V1.16
+```
+
 Runing project:
 ```
 go mod vendor
@@ -23,7 +28,7 @@ http://localhost:8080/
 http://localhost:8080/anomaly-detection
 ```
 
-Example Response Api
+Example One Response Api
 ```
 {
   timestamp: "2014-02-09 10:30:00",
